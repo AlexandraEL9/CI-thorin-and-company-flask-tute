@@ -207,3 +207,24 @@ And then "image_source", which will contain a link to the image.
 Since we already have the biography details, I will just grab that from my 'About' page.
 Just copy the text within our biography paragraph, and then paste that in between the quotes
 for the 'description' key.
+
+text all on one linereplace "double quotes" for 'single quotes'
+
+run.py
+@app.route("/about")
+def about():
+    data = []
+    with open("data/company.json", "r") as json_data:
+        data = json.load(json_data)
+    return render_template("about.html", page_title="About", company=data)
+
+
+------------------------------------------------------- Iterating Over Our JSON Data
+
+A for loop to iterate over our JSON data
+allows us to re-render the same HTML code for each item in a list (or iterable)
+By passing the data to the template and using the {% for member in company_data %} tag
+
+be good though, is if we could iterate through all of that data using a for-loop,
+so that if we add another member to Thorin's company, we don't have to worry about changing
+all of our hard-coded HTML.
