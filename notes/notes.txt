@@ -1,0 +1,27 @@
+________________template inheritance
+allows us to inherit code from other templates
+by creating a base template using 
+                              {% extends 'base.html' %} 
+    in a child template
+
+aim to reduce duplicated code   eg- navbar copied repeatedly!
+
+create a base template that can act as the primary page
+
+{% block content %}
+{% block content %}
+
+defining a block or area that we can inject content into from other pages
+
+The difference between the percent sign and the double curly bracket notation that we've
+used before, is that the double curly brackets contain an 'expression', which is outputting
+something either onto the screen, or in this case, into our href.
+The curly bracket and percentage are for statements that control the flow of our template, such
+as a for-loop, if-statement, or this block element.
+
+within html- remove all non-specific/ repeated content either side of the specific stuff
+
+(% extends "base.html" %)
+{% block content %}
+    <h1>Home Page</h1>
+{% endblock %}
