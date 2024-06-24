@@ -228,3 +228,90 @@ By passing the data to the template and using the {% for member in company_data 
 be good though, is if we could iterate through all of that data using a for-loop,
 so that if we add another member to Thorin's company, we don't have to worry about changing
 all of our hard-coded HTML.
+
+
+------------------------------------------------------- Using If Statements Inside Our HTML
+The if template tag
+Allows us to use if statements inside our templates
+By using the {% if some_condition %} tag and the closing {% endif %} tag
+
+everse the order of the images and
+text for each subsequent row, just as we did in our initial setup
+
+We can actually do this quite easily, because when we create a for-loop using the Jinja
+templating language, it also creates an object for us called 'loop'.
+That 'loop' object has a property which is '.index'.
+This shows us exactly which iteration of the loop we're on.
+If I just put it in there as an expression and reload the page, you can see that the
+first iteration, so number 1, is Thorin, and number 2 is Kili and Fili, and so on and so
+forth, until the very end of the loop, which is the number 13 for Gandalf.
+
+We can actually move this loop.index and put it into our member.name <h3> tags.
+I will just add a 'dot' after the index number, to separate it from the member's name.
+This now gives us a nice numbered list of all the members of Thorin's company.
+But we can do more than this.
+We can actually check this value, to see where we are in the for-loop itself.
+What we are going to do, is put an if-statement.
+Just like with for-loops, if-statements in our templates go between curly brackets and
+% notation, because they are logic.
+Immediately after the opening .featurette row, let's add: {% if loop.index % 2 != 0
+%}. Then, I will add the {% endif %} line before
+the closing </div> tag.
+This is to let the Jinja templating language know where to stop the if-statement.
+I'm just going to indent everything within the if-statement to make our code cleaner
+and easier to read logically.
+Let's discuss what this if-statement will do.
+If our loop.index is not divisible by 2 evenly, then we want to display that member to the
+page.
+Essentially, we are looking for odd numbers, since any odd number % 2 will never result
+in 0.
+I will save that, and reload the preview to see what effect that has on our page at the
+moment.
+As you can see, we only have any member with an odd loop.index number, displaying on the
+page now.
+Next, we want to get all of the even rows to display with the text on the left, and
+the image on the right.
+What we can do is put an {% else %} statement, and this will take care of the even rows.
+Inside of our else statement, any loop.index that is even will be displayed within this
+section.
+Again, I want to start by showing the image on the left, so let's copy the code from above,
+and paste in our else statement.
+Then, we want the text to be on the right, so we'll copy the code from above again, and
+paste that below our image.
+This will now display the text on the left and image on the right, if it's an odd loop.index
+number (1, 3, 5, etc.).
+But it will display the image on the left, and the text on the right, if it's an even
+loop.index number (2, 4, 6, etc.).
+Let's save that and reload the page to check it's working.
+Yep, as you can see, it's behaving as expected, with each row alternating left and right,
+which gives us a much nicer layout.
+One thing you may have noticed though, is that we still have this horizontal rule at
+the very end underneath Gandalf as well, which looks a bit messy.
+What we can do, is once again, use another if-statement to take care of that.
+Let's wrap our <hr> tag inside of its own if-clause.
+We know that we have 13 elements in our loop, so what we need is:
+{% if loop.index != 13 %}, then display the horizontal rule.
+Don't forget to close off our {% endif %} line below that, and hit tab to properly indent
+the <hr> element as well.
+When I reload the page, as you can see, the horizontal rule has disappeared, but only
+after the 13th item in our for-loop, and it looks a lot cleaner.
+But what happens if we have dozens of items in our loop, and we aren't sure the exact
+number of elements inside of that loop?
+Well, the Jinja templating language actually has a lof of built-in filters that we could
+use.
+The full documents for Jinja can be found at: jinja.palletsprojects.com.
+Once there, under the section for "Template Designer Documentation", is a "List of Builtin
+Filters".
+There's a lot of really fun and useful stuff here that we can use to improve our code,
+but for now, I'm just interested in "length()".
+We can update our if-statement to check {% if loop.index != loop.length %}, then show the
+<hr> divider.
+Let's see what that looks like.
+That's working perfectly now, and we have the <hr> divider for all of the items, except
+for the final loop.index item, without having to know the exact number of items in our loop.
+In this series of videos, we've looked at how to get data from the backend displayed
+through onto the frontend.
+We've also seen how using features of the Jinja templating language can help us write
+less HTML, by using variables and logic, such as for-loops and if/else-statements.
+Next, we are going to have a look at how to create forms, and then some advanced routing
+techniques.
