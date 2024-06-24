@@ -187,3 +187,23 @@ This is called 'logic control'.
 where the for-loop stops, and doesn't throw any unwanted errors.
 Inside of the for-loop, I'd like to generate a <p>aragraph tag for each iteration.
 
+------------------------------------------------------- Reading From A JSON File
+A JSON file that will contain our data
+Allows us to store data in a JSON file
+By creating a .json file and adding our data to the file
+
+It would be good if we could load all of this information from a file, and then display
+it to the screen.
+
+start by creating a new directory called 'data'.
+ creating a new file called 'company.JSON'.
+
+This file is going to contain an array of objects.
+Square brackets for the array, then curly brackets for our first object.
+This object will have three keys.
+"Name", which I will set to Thorin Oakenshield.
+"Description", which will contain a brief biography about him.
+And then "image_source", which will contain a link to the image.
+Since we already have the biography details, I will just grab that from my 'About' page.
+Just copy the text within our biography paragraph, and then paste that in between the quotes
+for the 'description' key.
