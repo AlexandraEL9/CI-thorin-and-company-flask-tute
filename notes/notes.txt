@@ -91,3 +91,78 @@ load the bootstrap.css file
 
 in base.html head
 <link rel="stylesheet" href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}">
+
+
+- now do everything in the body   copy   
+paste int base template- removing block elements for now.
+
+
+-----Next, we need to update all of the <script> sources for the JavaScript files.
+Once again, because we are referencing files that are within our own repository, we must
+use the url_for() function.
+url_for('static', filename=, and then just the link that's already provided to our vendor
+directory.
+
+<!-- Bootstrap core JavaScript -->
+  <script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <!-- Custom scripts for this template -->
+  <script src="{{ url_for('static', filename='js/clean-blog.min.js') }}"></script>
+
+---background image
+scroll up to page header
+
+change this:
+<header class="masthead" style="background-image: url('img/home-bg.jpg')">
+to this>
+<header class="masthead" style="background-image: url('{{ url_for('static', filename='img/home-bg.jpg') }}')">
+
+Everything is now loading properly, and we have these boilerplate posts as well.
+What we can do next, is to take those sample posts and put them into our index.html file
+as part of the 'block content', then add our block back into the base template.
+To do that, let's find the <!--Main Content--> section, which is line 54 for me, and highlight
+everything within the container div, all the way down to the closing div for this row.
+We don't want to include the container div itself, so be careful not to remove that.
+I will just cut all of this out using Ctlr+X on a PC, or Command+X on a Mac, but if you're
+unsure, right-click and select the 'Cut' option.
+In its place, I will then add my {% block content %} tags back in, making sure to include
+the closing {% endblock %} as well.
+
+Let's replace the existing <h1> header with the boilerplate posts that we cut out of the
+base template.
+
+
+
+--------------------------------------------------Making The Design Our Own
+Styling our site
+Customising the theme
+By modifying the theme to suit our needs
+
+
+
+
+---------------------------------------------------------------------------------   FLASK AND DATA
+------------------------------------------------------- Adding in some company DATA
+Gives the user some information on the company
+By creating some HTML that contains the information
+
+about page
+
+------------------------------------------------------- Passing Data From A View To A Template
+Information that we can provide to a template from the backend
+Allows us to generate information inside our view and inject it into a template
+By passing named arguments to the render_template function
+
+one of the greatest benefits of using frameworks, is the fact that we can actually
+get server-side code to provide the frontend with data.
+
+---in run.py
+page_title="About")
+
+@app.route("/about")
+def about():
+    return render_template("about.html", page_title="About")
+
+--in html
+<h2>{{ page_title }}</h2>
+
