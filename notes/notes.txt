@@ -25,3 +25,26 @@ within html- remove all non-specific/ repeated content either side of the specif
 {% block content %}
     <h1>Home Page</h1>
 {% endblock %}
+
+
+-------------------------------------------------------------------APPLYING STYLES
+--------------------------------------------------Using a bootstrap theme
+allows us to quickly style oyr website
+downloaded from 'Start Bootstrap'
+
+https://startbootstrap.com/
+
+clean blog
+wget https://github.com/StartBootstrap/startbootstrap-clean-blog/archive/refs/tags/v5.0.10.zip
+
+in terminal:
+   
+mkdir static            -make directory      call it static
+dc static               -change directory- into static
+wget https://github.com/StartBootstrap/startbootstrap-clean-blog/archive/refs/tags/v5.0.10.zip       -paste link from bootstrap site
+           -this downloads the source files
+
+ls      command shows the zip files
+unzip file     unzip v5.0.10.zip
+
+cd -         leave static directory
