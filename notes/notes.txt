@@ -166,3 +166,24 @@ def about():
 --in html
 <h2>{{ page_title }}</h2>
 
+------------------------------------------------------- Using For Loops Inside HTML
+A template tag
+allows us to perform logic inside of our HTML templates. In this case, it allows us to use a for loop inside of our HTML
+By using the {% %} template tags
+
+how we can reduce repetition even
+more.
+
+one of the beauties of frameworks is being able to iterate
+over lists using a for-loop.
+To do that, we use the {% notation, because if you remember, that's for statements, not
+for expressions.
+This is called 'logic control'.
+
+{%for number in list_of_numbers %}
+
+ need to make sure to stop our for-loop by using the 'endfor' statement: {% endfor
+%}. That way the Jinja templating language knows
+where the for-loop stops, and doesn't throw any unwanted errors.
+Inside of the for-loop, I'd like to generate a <p>aragraph tag for each iteration.
+
