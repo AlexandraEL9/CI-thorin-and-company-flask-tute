@@ -48,3 +48,46 @@ ls      command shows the zip files
 unzip file     unzip v5.0.10.zip
 
 cd -         leave static directory
+
+
+in start bootstrap new folder in static directory--
+  -I want the CSS and the other directories to be one level above, directly within the 'static'
+folder.
+Just click on the CSS folder, hold down the Shift key, then click on the Vendor folder. (css, img, js, mail, scss, vendor)
+Once these are all highlighted, drag these directories one level up to the 'static' folder.  
+
+We don't need the 'startboostrap' folder, nor the 'gh-pages.zip' file anymore, so I
+can safely delete both of those now.
+
+____________CSS file
+base. html and add new line in head element under meta tags
+       <link rel="stylesheet" href="{{ url_for('static', filename='css/clean-blog.min.css') }}">
+
+add clas that's already in the cleanblog css file- navbar
+
+      <nav class="navbar">
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('contact') }}">Contact</a></li>
+            <li><a href="{{ url_for('careers') }}">Careers</a></li>
+        </ul>
+    </nav>
+
+
+--------------------------------------------------Styling templates
+Taking the styles of the theme and adding them to our own site
+Styles the content on our site
+By using the theme that we got from Start Bootstrap
+
+open in github and look at elements
+
+eg- in index.html
+
+load the bootstrap.css file
+
+<!-- Bootstrap core CSS -->
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+in base.html head
+<link rel="stylesheet" href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}">
